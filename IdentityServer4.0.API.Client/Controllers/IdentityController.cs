@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace IdentityServer4._0.API.Client.Controllers
+namespace IdentityServer4._0.API.Client.Quickstart
 {
     [Route("identity")]
     [Authorize]
