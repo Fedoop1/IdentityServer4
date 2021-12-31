@@ -2,7 +2,7 @@
 
 namespace IdentityServer4_0.Controllers.Identity;
 
-class IdentityController : Controller
+public class IdentityController : Controller
 {
     [HttpGet]
     public IActionResult Index()
@@ -10,10 +10,3 @@ class IdentityController : Controller
         return Json(new { claims = User.Claims.Select(c => new { type = c.Type, value = c.Value }) });
     }
 }
-    
-
-
-
-
-
-

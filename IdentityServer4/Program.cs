@@ -17,7 +17,7 @@ builder.Services.AddAuthentication().AddGoogle("Google", options =>
 
     // Use UserSecrets or Azure KeyVault
     options.ClientId = builder.Configuration.GetSection("GoogleIdentity")["clientId"];
-    options.ClientSecret = builder.Configuration.GetSection("GoogleIdentity")["clientId"];
+    options.ClientSecret = builder.Configuration.GetSection("GoogleIdentity")["clientSecret"];
 });
 
 builder.Services.AddControllersWithViews();
