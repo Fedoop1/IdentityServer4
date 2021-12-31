@@ -5,6 +5,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("default", config =>
+    {
+        config.WithOrigins("https://localhost:5003")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
 {
     options.Authority = "https://localhost:5001";
@@ -29,6 +39,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
+
+app.UseCors("default");
 
 app.UseAuthentication();
 app.UseAuthorization();

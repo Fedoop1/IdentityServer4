@@ -13,7 +13,7 @@ if (disco.IsError)
 var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest()
 {
     Address = disco.TokenEndpoint,
-    ClientId = "IdentityServer4Client",
+    ClientId = "IdentityServer4CliClient",
     ClientSecret = "secret",
     Scope = "IdentityServer4Provider",
 });

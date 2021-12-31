@@ -12,7 +12,7 @@ namespace IdentityServer4
         {
             new Client()
             {
-                ClientId = "IdentityServer4Client",
+                ClientId = "IdentityServer4CliClient",
 
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
 
@@ -42,6 +42,24 @@ namespace IdentityServer4
                 {
                     IdentityServerConstants.StandardScopes.OpenId, 
                     IdentityServerConstants.StandardScopes.Profile
+                }
+            },
+            new Client()
+            {
+                ClientId = "IdentityServer4JSClient",
+                ClientName = "JS Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequireClientSecret = false,
+
+                RedirectUris = new string[] { "https://localhost:5003/callback.html" },
+                PostLogoutRedirectUris = new string[] { "https://localhost:5003/index.html" },
+                AllowedCorsOrigins = new string[] { "https://localhost:5003" },
+
+                AllowedScopes = new string[]
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "IdentityServer4Provider"
                 }
             }
         };
