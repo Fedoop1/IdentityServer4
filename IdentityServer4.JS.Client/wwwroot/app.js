@@ -34,7 +34,7 @@ mgr.getUser().then((user) => {
 
 function log(message) {
     resultEl.innerText = '';
-    resultEl.innerText = message;
+    resultEl.innerText = typeof message === 'string' ? message : JSON.stringify(message, null, 2);
 }
 
 function login() {
