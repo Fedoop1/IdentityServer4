@@ -25,7 +25,7 @@ namespace IdentityServer4
             },
             new Client()
             {
-                ClientId = "mvc",
+                ClientId = "IdentityServer4WebClient",
 
                 ClientSecrets = new Secret[]
                 {

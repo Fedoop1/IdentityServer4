@@ -15,12 +15,15 @@ builder.Services.AddAuthentication(options =>
 {
     options.Authority = "https://localhost:5001";
 
-    options.ClientId = "mvc";
+    options.ClientId = "IdentityServer4WebClient";
     options.ClientSecret = "secret";
     options.ResponseType = "code";
 
     options.Scope.Add("profile");
     options.Scope.Add("openid");
+
+    options.Scope.Add("IdentityServer4Provider");
+    options.Scope.Add("offline_access");
 
     options.GetClaimsFromUserInfoEndpoint = true;
 

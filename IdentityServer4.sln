@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4.0.API.Client", "IdentityServer4.0.API.Client\IdentityServer4.0.API.Client.csproj", "{9C2AC5F5-46EE-4084-9AFC-9F9BAB6560DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4.0.API.Provider", "IdentityServer4.0.API.Provider\IdentityServer4.0.API.Provider.csproj", "{9C2AC5F5-46EE-4084-9AFC-9F9BAB6560DF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4.0.CLI.Client", "IdentityServer4.0.CLI.Client\IdentityServer4.0.CLI.Client.csproj", "{AEE69D25-E6BE-4888-A8EF-D8288CD34D6B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4.0", "IdentityServer4\IdentityServer4.0.csproj", "{1E9DE880-CA08-4293-9BE1-C0F7B4E7FD02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4.0.Provider", "IdentityServer4.Provider\IdentityServer4.0.Provider.csproj", "{1E9DE880-CA08-4293-9BE1-C0F7B4E7FD02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer4.0.WEB.Client", "IdentityServer4.0.WEB.Client\IdentityServer4.0.WEB.Client.csproj", "{D5C58C74-CBDE-41C5-8654-B906A72A557E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4.0.WEB.Client", "IdentityServer4.0.WEB.Client\IdentityServer4.0.WEB.Client.csproj", "{D5C58C74-CBDE-41C5-8654-B906A72A557E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
