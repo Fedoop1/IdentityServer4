@@ -33,6 +33,7 @@ namespace IdentityServer4
                 },
 
                 AllowedGrantTypes = GrantTypes.Code,
+                AllowOfflineAccess = true,
 
                 RedirectUris = new string[] { "https://localhost:5002/signin-oidc" },
 
@@ -41,7 +42,11 @@ namespace IdentityServer4
                 AllowedScopes = new string[]
                 {
                     IdentityServerConstants.StandardScopes.OpenId, 
-                    IdentityServerConstants.StandardScopes.Profile
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "IdentityServer4Provider",
+
+                    // Must not be used in the implicit flow!
+                    IdentityServerConstants.StandardScopes.OfflineAccess,
                 }
             },
             new Client()

@@ -1,15 +1,27 @@
 using IdentityServer4;
-using static IdentityServer4.Config;
+using IdentityServer4.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using static IdentityServerHost.Quickstart.UI.TestUsers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddIdentityServer()
-    .AddInMemoryIdentityResources(IdentityResources)
     .AddDeveloperSigningCredential()
-    .AddInMemoryApiScopes(ApiScopes)
-    .AddInMemoryClients(Clients)
-    .AddTestUsers(Users);
+    .AddTestUsers(Users)
+    .AddConfigurationStore(options =>
+    {
+        options.ConfigureDbContext = callback =>
+            callback.UseSqlServer(
+                builder.Configuration.GetConnectionString("ConfigurationDbConnectionString"), 
+                dbOptions => dbOptions.MigrationsAssembly(typeof(Program).Assembly.FullName));
+    })
+    .AddOperationalStore(options =>
+    {
+        options.ConfigureDbContext = callback =>
+            callback.UseSqlServer(builder.Configuration.GetConnectionString("PersistedGrantDbConnectionString"),
+                dbOptions => dbOptions.MigrationsAssembly(typeof(Program).Assembly.FullName));
+    });
+
 
 builder.Services.AddAuthentication().AddGoogle("Google", options =>
 {
@@ -24,8 +36,9 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-app.UseDeveloperExceptionPage();
+app.InitializeDatabaseAsync();
 
+app.UseDeveloperExceptionPage();
 
 app.UseStaticFiles();
 app.UseRouting();
@@ -37,3 +50,5 @@ app.UseAuthorization();
 app.MapDefaultControllerRoute();
 
 app.Run();
+
+
